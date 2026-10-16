@@ -1,0 +1,68 @@
+name: safecalc
+
+services:
+  app-1:
+    build: .
+    environment:
+      FLAG: "ZCTF2026{fake_flag_run_against_remote}"
+      PORT: "5000"
+    ports:
+      - "5015:5000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+          pids: 64
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  app-2:
+    build: .
+    environment:
+      FLAG: "ZCTF2026{fake_flag_run_against_remote}"
+      PORT: "5000"
+    ports:
+      - "5016:5000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+          pids: 64
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  app-3:
+    build: .
+    environment:
+      FLAG: "ZCTF2026{fake_flag_run_against_remote}"
+      PORT: "5000"
+    ports:
+      - "5017:5000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+          pids: 64
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
